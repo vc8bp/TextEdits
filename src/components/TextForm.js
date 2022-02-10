@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../style.css'
 
 export default function TextForm(props) {
-    const [Text, setText] = useState('');
+    const [Text, setText] = useState('ketan randi ke gand kuch dal le lavde');
 
     const HandleOnChange = (event) => {
         setText(event.target.value)
