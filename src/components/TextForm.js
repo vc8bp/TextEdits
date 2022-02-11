@@ -2,29 +2,37 @@ import React, {useState} from 'react';
 import '../style.css'
 
 export default function TextForm(props) {
+
+    //abel to change code on textBox
     const [Text, setText] = useState('');
 
     const HandleOnChange = (event) => {
         setText(event.target.value)
     }
 
+    //upper case logic
     const HandleUpcase = ()=> {
         let newText = Text.toUpperCase();
         setText(newText)
+        props.showAlert(": your text converted to upperCase","success ")
     }
 
     
-
+    //lowerCase logic
     const HandleLocase = ()=> {
         let newText = Text.toLowerCase();
         setText(newText)
+        props.showAlert(": your text converted to lowerCase","success ")
     }
 
+    //remove extra spaces logic
     const HandleRvexsp = () => {
         let newText = Text.replace(/\s+/g, ' ').trim();
         setText(newText)
+        props.showAlert(": removed extra spaces from your text","success ")
     }
-    
+
+    //capitalize per word logic
     const Handle1stc = () => {
         
         let new2Text = Text;
@@ -37,16 +45,11 @@ export default function TextForm(props) {
 
         let newText = arr.join(" ");
         setText(newText)
+        props.showAlert(": added per word capitalize to your text","success ")
 
     
     }
-    
 
-
-    
-
-
-    
     
     
 
@@ -64,13 +67,13 @@ export default function TextForm(props) {
             <textarea className="form-control" value={Text} onChange={HandleOnChange} id="Text" style={{ backgroundColor: props.mode==="dark"?"grey":"white", color: props.mode==="dark"?"white":"#2c2556" }} rows="12"></textarea>
 
             <div className='formButton'>
-                <button className="btn btn-primary mx-1" onClick={HandleUpcase}>convert to uppercase</button>
-                <button className="btn btn-primary mx-1" onClick={HandleLocase}>convert to lowercase</button>
-                <button className="btn btn-primary mx-1" onClick={HandleRvexsp}>remove extra space</button>
-                <button className="btn btn-primary mx-1" onClick={Handle1stc}>capitalize per word</button>
+                <button className="btn btn-primary mx-1 my-2" onClick={HandleUpcase}>convert to uppercase</button>
+                <button className="btn btn-primary mx-1 my-2" onClick={HandleLocase}>convert to lowercase</button>
+                <button className="btn btn-primary mx-1 my-2" onClick={HandleRvexsp}>remove extra space</button>
+                <button className="btn btn-primary mx-1 my-2" onClick={Handle1stc}>capitalize per word</button>
                 
 
-                
+                 
             </div>
             </div>
         </div>
