@@ -21,10 +21,10 @@ export default function NavBar(props) {
           <Link className="nav-link" to="/about">{props.About}</Link>
         </li>
       </ul>
-       <form className="d-flex mx-4">
+       {/* <form className="d-flex mx-4">
         <input className="form-control me-2 " type="input" placeholder="enter color to change backgroung" aria-label="Search"/>
         <button className="btn btn-outline-success " type="submit">Enter</button> 
-      </form> 
+      </form>  */}
       <div className={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
         <input className="form-check-input" onClick={props.toggleMod} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode==="light"?"enable darkMode":"disable darkMode"}</label>
